@@ -90,9 +90,10 @@ data.each do |file|
 		new_text = replace(file[:replace], text)
 		
 		## Make a backup
-		File.open("#{file[:filename]}.bak", "w") { |file| file << text }
+		File.open("#{file[:filename]}.bak", "w") { |backup| backup << text }
 
-		File.open(file[:filename], "w") { |file| file << new_text }
+		File.open(file[:filename], "w") { |existing| existing << new_text }
+		puts "#{file[:filename]} processed \n"
 	else
 		puts "#{file[:filename]} does not exist \n"
 	end
@@ -102,7 +103,8 @@ files.each do |file|
 	filename = file[:path] + file[:filename]
 	if File.exist?(filename)
 		string = File.read(file[:filename])
-		File.open(filename, "w") { |file| file << string }
+		File.open(filename, "w") { |new_file| new_file << string }
+		puts "#{file[:filename]} created \n"
 	else
 		puts "#{filename} does not exist \n"
 	end
