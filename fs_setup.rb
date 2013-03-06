@@ -55,9 +55,9 @@ data = [
 				:new => '<X-PRE-PROCESS cmd="set" data="external_sip_ip=$${local_ip_v4}"/>'
 			},
 			{
-				:original => '<X-PRE-PROCESS cmd="set" data="domain=$$\{local_ip_v4\}"/>',
-				:new => '<X-PRE-PROCESS cmd="set" data="local_ip_v4=' + ip + '"/>' + "\n" +
-  						'<X-PRE-PROCESS cmd="set" data="domain=$${local_ip_v4}"/>'
+				:original => '<X-PRE-PROCESS cmd="set" data="domain=\$\$\{local_ip_v4\}"/>',
+				:new => '<X-PRE-PROCESS cmd="set" data="local_ip_v4=' + ip + '"/>' + "\n" + 
+					'<X-PRE-PROCESS cmd="set" data="domain=$${local_ip_v4}"/>'
 			}
 		]
 	},
