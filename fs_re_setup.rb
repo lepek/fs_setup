@@ -1,5 +1,7 @@
 fs_path = '/usr/local/freeswitch'
 ip = '198.168.1.201'
+ivr_ip = '198.168.1.202'
+re_domain = 'smrt-re.x'
 
 files = [
 	{
@@ -9,6 +11,10 @@ files = [
 	{
 		:filename => 'xml_curl.conf.xml',
 		:path => "#{fs_path}/conf/autoload_configs/"
+	},
+	{
+		:filename => 'ivr_engine_out.xml',
+		:path => '#{fs_path}/conf/sip_profiles/external/'
 	}
 ]
 
@@ -57,6 +63,7 @@ data = [
 			{
 				:original => '<X-PRE-PROCESS cmd="set" data="domain=\$\$\{local_ip_v4\}"/>',
 				:new => '<X-PRE-PROCESS cmd="set" data="local_ip_v4=' + ip + '"/>' + "\n" + 
+					'<X-PRE-PROCESS cmd="set" data="ivr_engine_ip=' + ivr_ip + '"/>' + "\n" + 
 					'<X-PRE-PROCESS cmd="set" data="domain=$${local_ip_v4}"/>'
 			}
 		]
@@ -103,7 +110,8 @@ files.each do |file|
 	filename = file[:path] + file[:filename]
 	if File.exist?(filename)
 		string = File.read(file[:filename])
-		File.open(filename, "w") { |new_file| new_file << string }
+		new_string = string.gsub(/\{RE_DOMAIN\}/, re_domain)
+		File.open(filename, "w") { |new_file| new_file << new_string }
 		puts "#{file[:filename]} created \n"
 	else
 		puts "#{filename} does not exist \n"
