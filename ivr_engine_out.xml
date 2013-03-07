@@ -1,0 +1,14 @@
+<include>
+  <gateway name="ivr_engine_out">
+    <param name="username" value="1000"/>
+    <param name="realm" value="$${ivr_engine_ip}"/>
+    <param name="password" value="1234"/>
+    <param name="extension" value=""/>
+    <param name="proxy" value="$${ivr_engine_ip}"/>
+    <param name="context" value="public"/>
+    <param name="expire-seconds" value="600"/>
+    <param name="caller-id-in-from" value="true"/>
+    <param name="inbound-bypass-media" value="true"/>
+ 	<param name="register" value="false"/>
+  </gateway>
+</include>
