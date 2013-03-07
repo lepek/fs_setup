@@ -14,7 +14,7 @@ files = [
 	},
 	{
 		:filename => 'ivr_engine_out.xml',
-		:path => '#{fs_path}/conf/sip_profiles/external/'
+		:path => "#{fs_path}/conf/sip_profiles/external/"
 	}
 ]
 
