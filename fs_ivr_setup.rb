@@ -63,11 +63,9 @@ data = [
 		:filename => "#{fs_path}/conf/autoload_configs/acl.conf.xml",
 		:replace => [
 			{
-				:original => '<list name="domains" default="deny">(.*)</list>',
-				:new => '<list name="domains" default="deny">' +
-							'\1' +
-							'<node type="allow" cidr="$${re_engine_ip}/24"/>' + "\n" +
-						'</list>'
+				:original => '<list name="domains" default="deny">',
+				:new => '<list name="domains" default="deny">' + "\n" +
+							'<node type="allow" cidr="$${re_engine_ip}/24"/>' + "\n"
 			}
 		]
 	}	
