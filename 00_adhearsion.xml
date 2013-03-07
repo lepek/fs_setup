@@ -1,0 +1,5 @@
+<extension name="adhearsion">
+  <condition>
+    <action application="park"/>
+  </condition>
+</extension>

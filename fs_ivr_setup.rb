@@ -2,7 +2,12 @@ fs_path = '/usr/local/freeswitch'
 ip = '192.168.1.202'
 re_ip = '192.168.1.201'
 
-files = []
+files = [
+	{
+		:filename => '00_adhearsion.xml',
+		:path => "#{fs_path}/conf/dialplan/default/"
+	}
+]
 
 data = [
 	{
