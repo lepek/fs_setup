@@ -1,5 +1,6 @@
 fs_path = '/usr/local/freeswitch'
-ip = '198.168.1.202'
+ip = '192.168.1.202'
+re_ip = '192.168.1.201'
 
 files = []
 
@@ -48,7 +49,20 @@ data = [
 			{
 				:original => '<X-PRE-PROCESS cmd="set" data="domain=\$\$\{local_ip_v4\}"/>',
 				:new => '<X-PRE-PROCESS cmd="set" data="local_ip_v4=' + ip + '"/>' + "\n" + 
-					'<X-PRE-PROCESS cmd="set" data="domain=$${local_ip_v4}"/>'
+					'<X-PRE-PROCESS cmd="set" data="domain=$${local_ip_v4}"/>' + "\n" +
+					'<X-PRE-PROCESS cmd="set" data="re_engine_ip=' + re_ip + '"/>'
+			}
+		]
+	},
+	{
+		:filename => "#{fs_path}/conf/autoload_configs/acl.conf.xml",
+		:replace => [
+			{
+				:original => '<list name="domains" default="deny">(.*)</list>',
+				:new => '<list name="domains" default="deny">' +
+							'\1' +
+							'<node type="allow" cidr="$${re_engine_ip}/24"/>' + "\n" +
+						'</list>'
 			}
 		]
 	}	
