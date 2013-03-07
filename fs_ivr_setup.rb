@@ -98,7 +98,7 @@ end
 
 files.each do |file|
 	filename = file[:path] + file[:filename]
-	if File.exist?(filename)
+	if File.exist?(file[:filename])
 		string = File.read(file[:filename])
 		File.open(filename, "w") { |new_file| new_file << string }
 		puts "#{file[:filename]} created \n"

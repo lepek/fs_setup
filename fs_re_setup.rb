@@ -108,7 +108,7 @@ end
 
 files.each do |file|
 	filename = file[:path] + file[:filename]
-	if File.exist?(filename)
+	if File.exist?(file[:filename])
 		string = File.read(file[:filename])
 		new_string = string.gsub(/\{RE_DOMAIN\}/, re_domain)
 		File.open(filename, "w") { |new_file| new_file << new_string }
