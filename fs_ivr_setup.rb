@@ -20,7 +20,11 @@ data = [
 			{
 				:original => '<param name="ext-sip-ip" value="auto-nat"/>',
 				:new => ' <param name="ext-sip-ip" value="$${external_sip_ip}"/>'
-			}
+			},
+			{
+                :original => '<param name="context" value="public"/>',
+                :new => '<param name="context" value="default"/>'
+            }
 		]
 	},
 	{
