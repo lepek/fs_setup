@@ -1,0 +1,38 @@
+<include>
+	<gateway name="sansayPSTNLA_out">
+    <!--/// account username *required* ///-->
+    <param name="username" value="none"/>
+    <!--/// auth realm: *optional* same as gateway name, if blank ///-->
+    <param name="realm" value=""/>
+    <!--/// account password *required* ///-->
+    <param name="password" value="none"/>
+    <param name="register" value="false"/>
+    <!--/// proxy host: *optional* same as realm, if blank ///-->
+    <param name="proxy" value="208.64.4.22"/>
+    <!--/// expire in seconds: *optional* 3600, if blank ///-->
+    <param name="expire-seconds" value="600"/>
+	  <param name="caller-id-in-from" value="true"/>
+	  <!-- 
+    <param name="inbound-bypass-media" value="true"/> 
+	  <param name="inbound-no-media" value="true"/>
+	  <param name="disable-transcoding" value="true"/> -->
+	</gateway>
+		
+	<gateway name="sansayPSTNNY_out">
+    <!--/// account username *required* ///-->
+    <param name="username" value="none"/>
+    <!--/// auth realm: *optional* same as gateway name, if blank ///-->
+    <param name="realm" value=""/>
+    <!--/// account password *required* ///-->
+    <param name="password" value="none"/>
+    <param name="register" value="false"/>
+    <!--/// proxy host: *optional* same as realm, if blank ///-->
+    <param name="proxy" value="65.248.16.32"/>
+    <!--/// expire in seconds: *optional* 3600, if blank ///-->
+    <param name="expire-seconds" value="600"/>
+	  <param name="caller-id-in-from" value="true"/>
+	  <!--
+	  <param name="inbound-bypass-media" value="true"/>
+	  <param name="disable-transcoding" value="true"/> -->
+  </gateway>
+</include>

@@ -6,6 +6,10 @@ files = [
 	{
 		:filename => '00_adhearsion.xml',
 		:path => "#{fs_path}/conf/dialplan/default/"
+	},
+	{
+		:filename => 'sansay_out.xml',
+		:path => "#{fs_path}/conf/sip_profiles/external/"
 	}
 ]
 
